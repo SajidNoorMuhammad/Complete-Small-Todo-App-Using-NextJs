@@ -1,12 +1,17 @@
 "use client"
+import { updateTodo } from '@/actions/todos'
 import React, { useState } from 'react'
 
 const TodoList = ({ todos }) => {
     const [edit, setEdit] = useState('')
 
     const onComplete = async () => {
-
+        const obj = { ...todos };
+        console.log("obj =>", obj)
+        obj.isCompleted = !obj.isCompleted;
+        await updateTodo(obj)
     }
+
     const onEdit = async () => { }
     const onDelete = async () => { }
     return (
