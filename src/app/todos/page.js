@@ -10,7 +10,6 @@ const Todo = async () => {
         cache: "no-cache"
     });
     todo = await todo.json();
-    console.log(todo)
 
     return (
         <div>
