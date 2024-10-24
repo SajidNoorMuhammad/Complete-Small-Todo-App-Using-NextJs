@@ -54,3 +54,14 @@ export async function POST(request) {
         msg: "Todos Added Successfully"
     })
 }
+
+export async function PUT(request) {
+    const data = await request.json();
+    const todoInd = todos.findIndex((todo) => todo.id == data.id);
+    todos[todoInd] = data;
+
+    return Response.json({
+        data: todos,
+        msg: "Todos Updated Successfully"
+    })
+}
